@@ -1,3 +1,7 @@
 from django.contrib import admin
+from app.models import Cliente , direccion ,fecha, producto
 
-# Register your models here.
+admin.site.register(Cliente)
+admin.site.register(direccion)
+admin.site.register(fecha)
+admin.site.register(producto)
