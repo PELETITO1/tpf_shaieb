@@ -1,5 +1,5 @@
 from django import forms
-from app.models import producto
+from app.models import Producto
 
 class ProductosFormulario(forms.Form):
     nombre=forms.CharField()

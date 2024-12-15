@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from app.models import producto
+from app.models import Producto
 from app.forms import ProductosFormulario
 
 def inicio(request):
@@ -14,26 +14,33 @@ def productos(request):
 def tienda(request):
     return render(request, "app/tienda.html")
 
-
-
-def ProductosFormulario(request):
+def ProductosFormularioView(request):
     if request.method == 'POST':
-        productos = productos(nombre=request.POST['nombre'],precio=request.POST['precio'], categoria=request.POST['categoria'])
-        curso.save()
-        return render(request, "app/index.html")
-    return render(request,"app/ProductosFormulario.html")
+        producto = Producto(
+            nombre=request.POST['nombre'],
+            precio=request.POST['precio'],
+            categoria=request.POST['categoria']
+        )
+        producto.save()
+        return render(request, "app/inicio.html")
+    return render(request, "app/ProductosFormulario.html")
 
 def form_con_api(request):
     if request.method == "POST":
-        mi_formulario = ProductosFormulario(request.POST)  # Aquí me llega la información del HTML
+        mi_formulario = ProductosFormulario(request.POST)  # Procesa la información del formulario
         if mi_formulario.is_valid():
             informacion = mi_formulario.cleaned_data
-            producto = ProductosFormulario (  Nombre=informacion["Nombre"], Precio=informacion["Precio"], Categoria=informacion["Categoria"])
+            producto = Producto(
+                nombre=informacion["nombre"],
+                precio=informacion["precio"],
+                categoria=informacion["categoria"]
+            )
             producto.save()
-            return render(request, "app/index.html") 
+            return render(request, "app/inicio.html")
     else:
-        mi_formulario = ProductosFormulario(request)
+        mi_formulario = ProductosFormulario()
 
-    return render(request, "app/form_con_api.html", {"mi_formulario": mi_formulario}) 
+    return render(request, "app/form_con_api.html", {"mi_formulario": mi_formulario})
+
 
 

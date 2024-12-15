@@ -1,22 +1,19 @@
 from django.db import models
 
-# Create your models here.
 class Cliente(models.Model):
     nombre = models.CharField(max_length=40)
-    apellido = models.CharField( max_length=20)
-    email = models.EmailField(max_length=40 , default='aaa@aaa.com')
-    
+    apellido = models.CharField(max_length=20)
+    email = models.EmailField(max_length=40, default='aaa@aaa.com')
 
-class direccion(models.Model):
+class Direccion(models.Model):
     direccion = models.CharField(max_length=40)
-    codigopostal = models.IntegerField(default= 'not null')
+    codigopostal = models.IntegerField()
 
-class fecha(models.Model):
+class Fecha(models.Model):
     nombre = models.CharField(max_length=40)
     fecha = models.DateField()
-    
-    
-class producto(models.Model):
+
+class Producto(models.Model):
     nombre = models.CharField(max_length=40)
-    precio = models.IntegerField(default= 'not null')
-    categoria= models.CharField(max_length=40)
+    precio = models.IntegerField()
+    categoria = models.CharField(max_length=40)
