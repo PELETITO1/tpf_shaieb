@@ -1,0 +1,18 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block title %} Resultados de la Búsqueda {% endblock title %}
+
+{% block main %}
+    <h2>Resultados de la Búsqueda</h2>
+    {% if productos %}
+        <ul>
+        {% for producto in productos %}
+            <li>{{ producto.nombre }} - ${{ producto.precio }} - Categoría: {{ producto.categoria }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron productos que coincidan con la búsqueda.</p>
+    {% endif %}
+{% endblock main %}

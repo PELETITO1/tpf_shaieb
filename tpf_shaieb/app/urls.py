@@ -8,4 +8,5 @@ urlpatterns = [
     path('tienda/', views.tienda, name="tienda"),
     path('productosformulario/', views.ProductosFormularioView, name="ProductosFormulario"),
     path('form_con_api/', views.form_con_api, name="FormConApi"),
+    path('buscar-producto/', views.buscar_form_con_api, name="BuscarProducto"),
 ]

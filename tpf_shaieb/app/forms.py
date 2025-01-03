@@ -7,4 +7,7 @@ class ProductosFormulario(forms.Form):
     categoria=forms.CharField()
 
 
+class BuscaProductoForm(forms.Form):
+    nombre = forms.CharField(label="Nombre del producto", max_length=40)
+
     
