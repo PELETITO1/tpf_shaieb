@@ -1,16 +1,11 @@
-{% extends 'app/base.html' %}
+{% extends "app/base.html" %}
+{% load static  %}
 
-{% load static %}
-
-{% block title %} Buscar Producto {% endblock title %}
-
-{% block main %}
-    <h2>Buscar Producto</h2>
-    <form method="POST">
-        {% csrf_token %}
-        <table>
-            {{ mi_formulario.as_table }}
-        </table>
-        <input type="submit" value="Buscar">
-    </form>
-{% endblock main %}
+{% block main  %}
+<h1>Buscar Productos</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ mi_formulario.as_p }}
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+{% endblock %}

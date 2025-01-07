@@ -76,7 +76,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 # Internationalization
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
@@ -90,7 +91,9 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
-
+LOGIN_REDIRECT_URL = '/' 
+LOGOUT_REDIRECT_URL = '/'
+PASSWORD_CHANGE_DONE = '/' 
 # Location for static files during production
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 

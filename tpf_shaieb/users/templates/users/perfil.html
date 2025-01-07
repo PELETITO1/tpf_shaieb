@@ -1,0 +1,18 @@
+{% extends "app/base.html" %}
+
+{% block main %}
+    <h2>Perfil de {{ user.username }}</h2>
+
+    <p>Nombre: {{ user.first_name }} {{ user.last_name }}</p>
+    <p>Email: {{ user.email }}</p>
+
+    <p>Avatar:</p>
+    {% if user.avatar and user.avatar.imagen %}
+        <img src="{{ user.avatar.imagen.url }}" alt="Avatar" style="max-width: 150px;"/>
+    {% else %}
+        <p>No tienes un avatar.</p>
+    {% endif %}
+    
+    <br>
+    <a href="{% url 'editar_perfil' %}" class="btn btn-primary">Editar Perfil</a>
+{% endblock %}
